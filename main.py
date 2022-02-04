@@ -1,5 +1,6 @@
 import numpy as np
 import cv2 as cv
+import imutils
 
 image_path = 'data/UtherArt.jpg'
 
@@ -57,5 +58,13 @@ cv.destroyAllWindows()
 # useful when reducing high frequency noise
 blurred_image = cv.GaussianBlur(image, (27, 27), 0)
 cv.imshow('Blurred image', blurred_image)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Stack images
+resized = imutils.resize(image, width=288)
+resized_blurred = imutils.resize(blurred_image, width=288)
+stack_images = np.hstack((resized, resized_blurred))
+cv.imshow('Stack image', stack_images)
 cv.waitKey(0)
 cv.destroyAllWindows()
