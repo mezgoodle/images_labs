@@ -34,4 +34,12 @@ cv.destroyAllWindows()
 resized_image = cv.resize(image, (200, 200))
 cv.imshow('Resized image', resized_image)
 cv.waitKey(0)
-cv.destroyAllWindows()
+
+# Resize the image with the ratio
+new_height = 200
+ratio = width / height
+new_width = int(new_height * ratio)
+resized = cv.resize(image, (new_width, new_height))
+print(resized.shape)
+cv.imshow('Resized image with ratio', resized)
+cv.waitKey(0)
