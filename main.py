@@ -70,10 +70,29 @@ cv.waitKey(0)
 cv.destroyAllWindows()
 
 # Draw a rectangle
-cv.rectangle(image, (200, 10), (400, 230), (0, 0, 255), 2)
-cv.imshow('Rectangle', image)
+copy = image.copy()
+cv.rectangle(copy, (200, 10), (400, 230), (0, 0, 255), 2)
+cv.imshow('Rectangle', copy)
 cv.waitKey(0)
+cv.destroyAllWindows()
 
-cv.line(image, (200, 10), (400, 230), (0, 0, 255), 2)
-cv.imshow('Line', image)
+# Draw a line
+copy = image.copy()
+cv.line(copy, (200, 10), (400, 230), (0, 0, 255), 2)
+cv.imshow('Line', copy)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Draw a polylines
+copy = image.copy()
+points = np.array([[200, 130], [300, 230], [400, 130], [300, 10]])
+cv.polylines(copy, np.int32([points]), 1, (0, 0, 255), 2)
+cv.imshow('Polylines', copy)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Draw a circle
+copy = image.copy()
+cv.circle(copy, (300, 130), 100, (0, 0, 255), 2)
+cv.imshow('Circle', copy)
 cv.waitKey(0)
