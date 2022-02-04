@@ -40,6 +40,6 @@ new_height = 200
 ratio = width / height
 new_width = int(new_height * ratio)
 resized = cv.resize(image, (new_width, new_height))
-print(resized.shape)
+print(f'Shape of the resized image with ratio: {resized.shape}')
 cv.imshow('Resized image with ratio', resized)
 cv.waitKey(0)
