@@ -22,3 +22,9 @@ print(f'This image has height: {height}px, width: {width}px and depth: {depth}')
 # Get pixel color
 (blue, green, red) = image[250, 250]
 print(f'This pixel has blue: {blue}, green: {green} and red: {red} intensity')
+
+# Get image part as slice
+# input image starting at x=200 ,y=10 and ending at x=420 ,y=200
+head = image[10:200, 200:420]
+cv.imshow('Head', head)
+cv.waitKey(0)
