@@ -28,3 +28,10 @@ print(f'This pixel has blue: {blue}, green: {green} and red: {red} intensity')
 head = image[10:200, 200:420]
 cv.imshow('Head', head)
 cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Resize the image
+resized_image = cv.resize(image, (200, 200))
+cv.imshow('Resized image', resized_image)
+cv.waitKey(0)
+cv.destroyAllWindows()
