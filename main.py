@@ -11,3 +11,10 @@ cv.imshow('Uther', image)
 cv.imshow('Uther Gray', image_gray)
 cv.waitKey(0)
 cv.destroyAllWindows()
+
+# Save image
+cv.imwrite('data/UtherArtGray.jpg', image_gray)
+
+# Image shape
+(height, width, depth) = image.shape
+print(f'This image has height: {height}px, width: {width}px and depth: {depth}')
