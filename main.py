@@ -68,3 +68,12 @@ stack_images = np.hstack((resized, resized_blurred))
 cv.imshow('Stack image', stack_images)
 cv.waitKey(0)
 cv.destroyAllWindows()
+
+# Draw a rectangle
+cv.rectangle(image, (200, 10), (400, 230), (0, 0, 255), 2)
+cv.imshow('Rectangle', image)
+cv.waitKey(0)
+
+cv.line(image, (200, 10), (400, 230), (0, 0, 255), 2)
+cv.imshow('Line', image)
+cv.waitKey(0)
