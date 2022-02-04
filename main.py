@@ -43,3 +43,11 @@ resized = cv.resize(image, (new_width, new_height))
 print(f'Shape of the resized image with ratio: {resized.shape}')
 cv.imshow('Resized image with ratio', resized)
 cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Rotate the image
+center = (width // 2, height // 2)
+matrix = cv.getRotationMatrix2D(center, angle=-90, scale=1.0)
+rotated_image = cv.warpAffine(image, matrix, (width, height))
+cv.imshow('Rotated image', rotated_image)
+cv.waitKey(0)
