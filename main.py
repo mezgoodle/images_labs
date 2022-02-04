@@ -18,3 +18,7 @@ cv.imwrite('data/UtherArtGray.jpg', image_gray)
 # Image shape
 (height, width, depth) = image.shape
 print(f'This image has height: {height}px, width: {width}px and depth: {depth}')
+
+# Get pixel color
+(blue, green, red) = image[250, 250]
+print(f'This pixel has blue: {blue}, green: {green} and red: {red} intensity')
