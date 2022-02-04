@@ -96,3 +96,12 @@ copy = image.copy()
 cv.circle(copy, (300, 130), 100, (0, 0, 255), 2)
 cv.imshow('Circle', copy)
 cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Put a text
+font = cv.FONT_HERSHEY_COMPLEX
+cv.putText(image, 'Uther', (10, 300), font, 4, (255, 255, 255), 2, cv.LINE_8)
+cv.putText(image, 'Lightbringer', (10, 400), font, 2, (255, 255, 255), 2, cv.LINE_8)
+cv.imshow('Text', image)
+cv.waitKey(0)
+cv.destroyAllWindows()
