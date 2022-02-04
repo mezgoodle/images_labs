@@ -51,3 +51,11 @@ matrix = cv.getRotationMatrix2D(center, angle=-90, scale=1.0)
 rotated_image = cv.warpAffine(image, matrix, (width, height))
 cv.imshow('Rotated image', rotated_image)
 cv.waitKey(0)
+cv.destroyAllWindows()
+
+# apply a Gaussian blur with a 11x11 kernel to the image to smooth it,
+# useful when reducing high frequency noise
+blurred_image = cv.GaussianBlur(image, (11, 11), 0)
+cv.imshow('Blurred image', blurred_image)
+cv.waitKey(0)
+cv.destroyAllWindows()
