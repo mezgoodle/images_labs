@@ -54,7 +54,7 @@ cv.imshow('Rotated image', rotated_image)
 cv.waitKey(0)
 cv.destroyAllWindows()
 
-# Apply a Gaussian blur with a 11x11 kernel to the image to smooth it,
+# Apply a Gaussian blur with a 27x27 kernel to the image to smooth it,
 # useful when reducing high frequency noise
 blurred_image = cv.GaussianBlur(image, (27, 27), 0)
 cv.imshow('Blurred image', blurred_image)
