@@ -50,7 +50,7 @@ while True:
 camera.release()
 cv.destroyAllWindows()
 
-video = cv.VideoCapture('../data/video.mp4')
+video = cv.VideoCapture('../data/video1.mp4')
 
 while True:
     _, image = video.read()
