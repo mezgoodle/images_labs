@@ -23,13 +23,13 @@ for(x, y, width, height) in faces_coords:
     roi_gray = gray_filter[y:y+height, x:x+width]
     roi_color = image[y:y+height, x:x+width]
 
-    smile = smile_cascade.detectMultiScale(roi_gray)
-    eye = eye_cascade.detectMultiScale(roi_gray)
+    smiles = smile_cascade.detectMultiScale(roi_gray)
+    eyes = eye_cascade.detectMultiScale(roi_gray)
 
-    for (sx, sy, sw, sh) in smile:
-        cv.rectangle(roi_color, (sx, sy), (sx + sw, sy + sh), (0, 255, 0), 1)
-    for (ex, ey, ew, eh) in eye:
-        cv.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 0, 255), 1)
+    for (smile_x, smile_y, smile_width, smile_height) in smiles:
+        cv.rectangle(roi_color, (smile_x, smile_y), (smile_x + smile_width, smile_y + smile_height), (0, 255, 0), 1)
+    for (eye_x, eye_y, eye_width, eye_height) in eyes:
+        cv.rectangle(roi_color, (eye_x, eye_y), (eye_x + eye_width, eye_y + eye_height), (0, 0, 255), 1)
 
 cv.imshow('Soccer team', image)
 cv.waitKey(0)
