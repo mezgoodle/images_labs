@@ -60,7 +60,7 @@ while True:
     boxes = np.array([[x, y, x+width, y+height] for (x, y, width, height) in boxes])
     for(x_a, y_a, x_b, y_b) in boxes:
         cv.rectangle(image, (x_a, y_a), (x_b, y_b), (0, 255, 0), 2)
-    cv.imshow('Face', image)
+    cv.imshow('People', image)
     key = cv.waitKey(1)
 
     if key == ord('q'):
