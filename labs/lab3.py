@@ -1,9 +1,11 @@
 import cv2 as cv
-from cv2 import threshold
 import numpy as np
+import matplotlib.pylab as plt
 
 
 def process_image(image):
+    plt.imshow(image)
+    plt.show()
     grey_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
     cv.imshow('frame', grey_image)
@@ -26,9 +28,12 @@ def process_image(image):
     ignore_mask_color = 255
 
     image_shape = image.shape
-    vertices = np.array([[(0, image_shape[0]), (450, 320), (500, 320), (image_shape[1], image_shape[0])]], dtype=np.int32)
+    vertices = np.array([[(0, image_shape[0]), (image_shape[1] / 2, image_shape[0] / 2), (image_shape[1], image_shape[0])]], dtype=np.int32)
     cv.fillPoly(mask, vertices, ignore_mask_color)
     masked_edges = cv.bitwise_and(edges, mask)
+
+    cv.imshow('frame', masked_edges)
+    cv.waitKey()
 
     rho = 2
     theta = np.pi / 180
