@@ -56,3 +56,4 @@ while (video_capture.isOpened()):
 
 video_capture.release()
 cv.destroyAllWindows()
+print(f'Total frame number is: {frame_counts}')
