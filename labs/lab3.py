@@ -31,16 +31,23 @@ def process_image(image):
 
     for line in lines:
         for x1,y1,x2,y2 in line:
-            cv.line(image, (x1, y1), (x2, y2), (255, 0, 0), 10)
+            cv.line(image, (x1, y1), (x2, y2), (0, 0, 255), 10)
     return image
 
 
 video_capture = cv.VideoCapture('../data/road_video.mp4')
+frame_counts = 0
 
 while (video_capture.isOpened()):
     ret, frame = video_capture.read()
     if ret:
+        frame_counts += 1
+
         output = process_image(frame)
+
+        font = cv.FONT_HERSHEY_COMPLEX
+        cv.putText(output, 'Maxim', (1300, 700), font, 2, (0, 0, 0), 2, cv.LINE_8)
+
         cv.imshow('frame', output)
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
