@@ -6,12 +6,21 @@ import numpy as np
 def process_image(image):
     grey_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
-    kernel_size = 5
-    blur_gray = cv.GaussianBlur(grey_image, (kernel_size, kernel_size), 0)
+    cv.imshow('frame', grey_image)
+    cv.waitKey()
+
+    kernel_size = (5, 5)
+    blur_gray = cv.GaussianBlur(grey_image, kernel_size, 0)
+
+    cv.imshow('frame', blur_gray)
+    cv.waitKey()
 
     low_treshold = 50
     high_treshold = 150
     edges = cv.Canny(blur_gray, low_treshold, high_treshold)
+
+    cv.imshow('frame', edges)
+    cv.waitKey()
 
     mask = np.zeros_like(edges)
     ignore_mask_color = 255
@@ -30,9 +39,12 @@ def process_image(image):
 
     lines = cv.HoughLinesP(masked_edges, rho, theta, threshold, np.array([]), min_line_length, max_line_gap)
 
+
     for line in lines:
         for x1,y1,x2,y2 in line:
             cv.line(line_image, (x1, y1), (x2, y2), (255, 0, 0), 10)
+    cv.imshow('frame', line_image)
+    cv.waitKey()
     return line_image
 
 
@@ -43,6 +55,7 @@ while (video_capture.isOpened()):
     if ret:
         output = process_image(frame)
         cv.imshow('frame', output)
+        break
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
     else:
