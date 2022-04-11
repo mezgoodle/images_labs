@@ -64,7 +64,7 @@ cv.destroyAllWindows()
 video_capture = cv.VideoCapture('../data/road_video.mp4')
 frame_counts = 0
 
-while (video_capture.isOpened()):
+while video_capture.isOpened():
     ret, frame = video_capture.read()
     if ret:
         frame_counts += 1
