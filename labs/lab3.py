@@ -23,9 +23,11 @@ def find_masks(edges, image, single_frame):
 
     image_shape = image.shape
     if single_frame:
-        vertices = np.array([[(0, image_shape[0]), (650, 460), (720, 470), (image_shape[1], image_shape[0])]], dtype=np.int32)
+        vertices = np.array([[(0, image_shape[0]), (650, 460), (720, 470), (image_shape[1], image_shape[0])]],
+                            dtype=np.int32)
     else:
-        vertices = np.array([[(0, image_shape[0]), (960, 690), (1080, 690), (image_shape[1], image_shape[0])]], dtype=np.int32)
+        vertices = np.array([[(0, image_shape[0]), (960, 690), (1080, 690), (image_shape[1], image_shape[0])]],
+                            dtype=np.int32)
     cv.fillPoly(mask, vertices, ignore_mask_color)
     return cv.bitwise_and(edges, mask)
 
@@ -48,9 +50,10 @@ def process_image(image, single_frame=False):
     lines = detect_lines(masked_edges)
 
     for line in lines:
-        for x1,y1,x2,y2 in line:
+        for x1, y1, x2, y2 in line:
             cv.line(image, (x1, y1), (x2, y2), (0, 0, 255), 10)
     return image
+
 
 frame = cv.imread('../data/road_image.jpg')
 output = process_image(frame, True)
